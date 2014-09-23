@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfa1c1db-2667-46ad-8950-f13d18b05b51" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.txt" />
     </list>
     <ignored path="Howard.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -70,13 +70,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
+      <file leaf-file-name="README.txt" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.txt">
           <provider editor-type-id="MarkdownPreviewEditor">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.43396226" vertical-offset="0" max-vertical-offset="795">
+            <state line="22" column="0" selection-start="391" selection-end="391" vertical-scroll-proportion="0.41509435" vertical-offset="0" max-vertical-offset="795">
               <folding />
             </state>
           </provider>
@@ -655,12 +655,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/README.txt">
       <provider editor-type-id="MarkdownPreviewEditor">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="399" selection-end="399" vertical-scroll-proportion="0.43396226" vertical-offset="0" max-vertical-offset="795">
+        <state line="22" column="0" selection-start="391" selection-end="391" vertical-scroll-proportion="0.41509435" vertical-offset="0" max-vertical-offset="795">
           <folding />
         </state>
       </provider>
