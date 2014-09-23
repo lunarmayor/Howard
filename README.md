@@ -19,3 +19,7 @@
   /              \
  /                \
 /                  \
+
+
+
+#a better brain dump
