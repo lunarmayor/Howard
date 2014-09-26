@@ -1,22 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfa1c1db-2667-46ad-8950-f13d18b05b51" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Development__Howard.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/Production__Howard.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/backbone/modules/notes/graph/graph_controller.js.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/backbone/modules/notes/graph/graph_view.js.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/stylesheets/main.css.sass" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/assets/javascripts/backbone/modules/notes/notes.js.coffee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/spec__Howard.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/runConfigurations/test__Howard.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile.lock" afterPath="$PROJECT_DIR$/Gemfile.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/Gemfile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Howard.iml" afterPath="$PROJECT_DIR$/.idea/Howard.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/javascripts/backbone/modules/nav/list/templates/_nav_link.jst.eco" afterPath="$PROJECT_DIR$/app/assets/javascripts/backbone/modules/nav/list/templates/_nav_link.jst.eco" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="cfa1c1db-2667-46ad-8950-f13d18b05b51" name="Default" comment="" />
     <ignored path="Howard.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -61,10 +46,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="note.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="note.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models/note.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="111" selection-end="111" vertical-scroll-proportion="0.099075295" vertical-offset="0" max-vertical-offset="757">
+            <state line="5" column="0" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/list.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="4" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.07926024" vertical-offset="0" max-vertical-offset="757">
               <folding />
             </state>
           </provider>
@@ -101,15 +95,6 @@
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.css.sass">
           <provider selected="true" editor-type-id="text-editor">
             <state line="3" column="14" selection-start="50" selection-end="50" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="300">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="nav_link.js.coffee" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/backbone/entities/entities/nav_link.js.coffee">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="7" selection-start="399" selection-end="399" vertical-scroll-proportion="0.0" vertical-offset="195" max-vertical-offset="330">
               <folding />
             </state>
           </provider>
@@ -171,6 +156,7 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/backbone/modules/notes/notes.js.coffee" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/backbone/modules/notes/graph/graph_controller.js.coffee" />
         <option value="$PROJECT_DIR$/app/models/note.rb" />
+        <option value="$PROJECT_DIR$/app/models/list.rb" />
       </list>
     </option>
   </component>
@@ -836,7 +822,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="22" width="1705" height="982" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1153,7 +1139,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/models/note.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="111" selection-end="111" vertical-scroll-proportion="0.099075295" vertical-offset="0" max-vertical-offset="757">
+        <state line="5" column="0" selection-start="111" selection-end="111" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/list.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.07926024" vertical-offset="0" max-vertical-offset="757">
           <folding />
         </state>
       </provider>
