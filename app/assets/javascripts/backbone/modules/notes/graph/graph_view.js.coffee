@@ -1,9 +1,7 @@
 Howard.module 'List.Graph', (Graph)->
-  ###
-  # Displays a chart
-  #
-  # @class Chart
-  ###
+
+
+
   class Graph.BubbleView extends Marionette.ItemView
 
     template: 'notes/graph/templates/chart'
