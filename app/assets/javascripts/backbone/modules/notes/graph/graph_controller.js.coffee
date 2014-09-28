@@ -2,10 +2,10 @@ Howard.module 'List.Graph', (Graph, App) ->
 
   Graph.Controller =
     setupDefaultList: ->
-      graph = new Graph.Visualization({collection: @getLinks()})
+      graph = new Graph.View({collection: @getNotes()})
 
       App.mainRegion.show(graph)
 
 
-    getLinks: ->
+    getLNotes: ->
       App.request "default:list"
