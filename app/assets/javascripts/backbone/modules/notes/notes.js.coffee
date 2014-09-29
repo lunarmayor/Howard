@@ -1,14 +1,13 @@
-Howard.module "List", (List, App) ->
+Howard.module "Notes", (Notes, App) ->
 
-  class List.Router extends Marionette.AppRouter
+  class Notes.Router extends Marionette.AppRouter
     appRoutes:
       ""	: "setupDefaultList"
-
   API =
     setupDefaultList: ->
-      List.Graph.Controller.setupDefaultList()
+      Notes.List.Controller.showDefaultNotes()
 
 
   App.addInitializer ->
-    new List.Router
+    new Notes.Router
       controller: API

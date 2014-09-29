@@ -16,6 +16,7 @@
 //= require lib/marionette
 //=
 //= require lib/three
+//= require lib/socket.io.js
 //= require lib/OrbitControls
 //= require_tree ./backbone/config
 //= require backbone/app
