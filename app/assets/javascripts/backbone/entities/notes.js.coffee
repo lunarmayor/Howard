@@ -14,5 +14,9 @@ Howard.module "Entities", (Entities, App) ->
       	  notes.fetch()
       	  notes
 
+      getNewNote: ->
+        new Entities.Note()
+
     App.reqres.setHandler "note:entities", API.getDefaultNotes
+    App.reqres.setHandler "new:note:entity", API.getNewNote
 

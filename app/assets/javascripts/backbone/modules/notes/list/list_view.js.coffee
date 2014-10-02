@@ -39,6 +39,22 @@ Howard.module 'Notes.List', (List, App) ->
     childView: List.ListItem
     className: 'note-list'
     childViewContainer: 'ul'
+
+    events:
+      'click .fa-plus': 'addInput'
+      'input blur': 'createNote'
+      'input keyup': 'checkIfEnter'
+
+
+    createNote: ->
+      note = App.request('new:note:entity')
+      note.set('content', @$el.find('input').val())
+      @collection.add(note)
+      note.save({}, {silent: true})
+
+
+    addInput: ->
+      @$el.find('ul').append("<li class='new'><input type='text'/></li>").find('input').focus()
       
 
     cancelEvent: (e) ->
