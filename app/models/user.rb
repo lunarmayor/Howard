@@ -11,6 +11,9 @@ class User < ActiveRecord::Base
   before_create :set_password_confirmation
   before_create :format_phone_number
 
+  has_many :notes
+  has_many :lists
+
   def set_password_confirmation
     self.password_confirmation = self.password
   end

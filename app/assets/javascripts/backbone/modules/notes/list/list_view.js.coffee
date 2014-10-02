@@ -16,12 +16,17 @@ Howard.module 'Notes.List', (List, App) ->
       dragIcon = document.createElement('img')
       dragIcon.src = 'assets/drag.png'
       $(dragIcon).addClass('drag-icon')
-      e.originalEvent.dataTransfer.setDragImage(dragIcon, 10, 10)
+      e.originalEvent.dataTransfer.setDragImage(dragIcon, 0, 0)
+
+      e.originalEvent.dataTransfer.setData('Text', @model.get('id'))
+
+    
+    dragging: (e) ->
+      e.preventDefault()
 
     tempShow: (e) ->
       $(e.target).animate({opacity: 1}, 300)
 
-    dragging: (e) ->
 
     onRender: ->
       @el.style.opacity = 0
@@ -34,6 +39,25 @@ Howard.module 'Notes.List', (List, App) ->
     childView: List.ListItem
     className: 'note-list'
     childViewContainer: 'ul'
+      
+
+    cancelEvent: (e) ->
+      $('.fa-trash').animate({color: 'red'}, 400)
+      $(this).addClass('over')
+
+      e.preventDefault()
+
+    unhighlight: ->
+      $(this).removeClass('over')
+
+
+    handleDrop: (e) =>
+      e.originalEvent.stopPropagation()
+      e.originalEvent.preventDefault()
+      id = e.originalEvent.dataTransfer.getData('Text')
+      @collection.findWhere(id: id * 1).destroy()
+      @$el.find('.fa-trash-container').removeClass('over')
+   
 
     onShow: ->
       dragIcon = document.createElement('img')
@@ -41,6 +65,9 @@ Howard.module 'Notes.List', (List, App) ->
 
       socket = io.connect('//localhost:3001/')
       socket.on('message', (data) =>
-        text =  JSON.parse(data).text
-        @collection.add({content: text})
+        @collection.add(JSON.parse(data))
       )
+
+      @$el.find('.fa-trash-container').on('dragover', @cancelEvent)
+      @$el.find('.fa-trash-container').on('dragleave', @unhighlight)
+      @$el.find('.fa-trash-container').on('drop', @handleDrop)

@@ -136,7 +136,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   eco
-  font-awesome-sass
+  font-awesome-sass (~> 4.2.0)
   jbuilder (~> 1.2)
   jquery-rails
   rails (= 4.0.0)

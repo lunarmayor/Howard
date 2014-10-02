@@ -1,3 +1,6 @@
+@import "font-awesome-sprockets"
+@import 'font-awesome'
+
 body, html
   margin: 0
   padding: 0
@@ -22,6 +25,34 @@ ul
   margin: 0
   padding: 0
   list-style: none
+
+.fa-plus
+  color: #ff2828
+  margin-left: 137px
+  position: relative
+  bottom: 15px
+  font-size: 20px
+
+.fa-trash-container
+  color: rgb(255, 40, 40)
+  font-size: 29px
+  position: fixed
+  bottom: 25px
+  left: 670px
+  height: 50px
+  transition: background 1s
+  width: 50px
+  text-align: center
+  border-radius: 25px
+  &.over
+    //border: 1px dotted rgb(255, 40, 40)
+    //bottom: 23px
+    //left: 668px
+    background: rgb(255, 216, 216)
+
+  i
+    position: relative
+    top: 10px
 
 .note-list
   ul
@@ -118,6 +149,29 @@ input
   padding-top: 13px
   letter-spacing: 1px
   padding-bottom: 13px
+
+#side-pane
+  position: absolute
+  top: 0
+  right: 0
+  width: 220px
+
+.drop-list
+  margin-top: 30px
+  li
+    text-align: center
+    background: rgb(251, 251, 251)
+    border: 2px dotted #D8B3B3
+    padding-top: 40px
+    padding-bottom: 40px
+    margin-right: 50px
+    transition: background 1s
+    margin-bottom: 20px
+    font-family: helvetica neue
+    font-weight: 100
+    &.over
+      background: rgb(251, 200, 200)
+      border-color: rgb(230, 180, 189)
 
 form
   margin-left: 50%
