@@ -6,6 +6,10 @@ Howard.module 'Lists.List', (List, App) ->
       'dragover': 'highlight'
       'dragleave': 'unhighlight'
       'drop': 'handleDrop'
+      'click': -> App.execute('show:list', @model.get('id'))
+
+    serializeData: (model) ->
+      _.extend(@model.attributes, {index: @options.index})
 
     highlight: (e) ->
       e.preventDefault()
@@ -18,7 +22,7 @@ Howard.module 'Lists.List', (List, App) ->
       e.originalEvent.stopPropagation()
       e.originalEvent.preventDefault()
       id = e.originalEvent.dataTransfer.getData('Text')
-      notes = App.request('note:entities')
+      notes = App.request('note:collection')
       note = notes.findWhere(id: id * 1).set('list_id', @model.get('id'))
       note.save(null, {silent: true, success: ->
         notes.remove(note)
@@ -31,5 +35,28 @@ Howard.module 'Lists.List', (List, App) ->
     childView: List.Item
     className: 'drop-list'
     childViewContainer: 'ul'
+
+    onShow: ->
+      App.reqres.setHandler('list:id:at:index', (index) =>
+        model = @collection.at((index * 1) - 1)
+        
+        if model
+          model.get('id')
+        else
+          false
+      )
+
+      App.commands.setHandler('highlight:list', (listId) =>
+        model = @collection.findWhere({id: listId * 1})
+        el = @children.findByModel(model).$el
+        el.one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", ->
+          el.removeClass('flashing')
+        )
+        el.addClass('flashing')
+      )
+    childViewOptions: (model) ->
+      {
+        index: @collection.indexOf(model) + 1
+      }
 
       
