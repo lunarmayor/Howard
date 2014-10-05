@@ -1,13 +1,13 @@
 Howard.module "Entities", (Entities, App) ->
 
 	class Entities.Note extends Entities.Model
-      urlRoot: 'notes'
+      urlRoot: '/notes'
 
 	class Entities.NoteCollection extends Entities.Collection
-	  url: 'notes'
+	  url: '/notes'
 	  model: Entities.Note
 
-	API = 
+	API =  
       getDefaultNotes: ->
       	@notes ||=  do ->
           new Entities.NoteCollection()
