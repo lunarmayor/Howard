@@ -8,6 +8,7 @@ gem 'sqlite3'
 gem 'eco'
 gem 'devise'
 gem 'redis'
+gem 'active_model_serializers' 
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
