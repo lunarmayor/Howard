@@ -72,6 +72,10 @@ ul
     border-right: rgba(222, 77, 83, 0.5) 5px solid
     border-left: rgba(222, 77, 83, 0.5) 5px solid
 
+    &.selected
+      background: rgba(222, 77, 83, 0.7)
+      border-color: rgba(222, 77, 83, 0.7)
+
 
 ul.nav-list
   margin: 0
@@ -118,6 +122,15 @@ h2
   font-weight: 100
   letter-spacing: 5px
 
+h4
+  margin: 0
+  margin-left: 120px
+  padding-top: 30px
+  font-family: helvetica neue
+  font-weight: 200
+  color: rgb(133, 83, 83)
+  font-size: 19px
+
 #sign-up img
   text-align: center
   margin-left: 50%
@@ -141,13 +154,20 @@ input
   padding-left: 25px
   padding-bottom: 15px
 
+.transparent
+  opacity: 0 !important
+
 li.new
+  background: rgba(255, 164, 168, 0.5)
+  opacity: 0
   input
     border: none
     margin: 0
-    font-size: 18px
-    padding-bottom: 7px
-    padding-top: 7px
+    font-size: 16px
+    padding-bottom: 0px
+    padding-top: 0px
+    padding-left: 0px
+    font-weight: 200
 
 .sign-up
   font-family: helvetica neue
@@ -159,7 +179,7 @@ li.new
   padding-bottom: 13px
 
 #side-pane
-  position: absolute
+  position: fixed
   top: 0
   right: 0
   width: 220px
@@ -177,9 +197,34 @@ li.new
     margin-bottom: 20px
     font-family: helvetica neue
     font-weight: 100
+    position: relative
+    cursor: pointer
+
+    &:hover
+      background: rgb(251, 200, 200)
+      border-color: rgb(230, 180, 189)
+
+      .index
+        color: black   
+
+    &.flashing
+      transition: background 0.2s
+      background-color: rgb(251, 200, 200)
     &.over
       background: rgb(251, 200, 200)
       border-color: rgb(230, 180, 189)
+
+      .index
+        color: black
+
+  .index
+    position: absolute
+    transition: color 1s
+    top: 8px
+    right: 8px
+    font-weight: 200
+    color: rgb(168, 168, 168)
+    font-size: 13px
 
 form
   margin-left: 50%
