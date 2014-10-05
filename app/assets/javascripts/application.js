@@ -23,3 +23,4 @@
 //= require_tree ./backbone/entities
 //= require_tree ./backbone/views
 //= require_tree ./backbone/modules
+//= require_tree ./backbone/behaviors
