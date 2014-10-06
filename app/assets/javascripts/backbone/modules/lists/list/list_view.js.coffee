@@ -36,7 +36,11 @@ Howard.module 'Lists.List', (List, App) ->
     className: 'drop-list'
     childViewContainer: 'ul'
 
+    onRender: ->
+      @$el.find('ul').prepend("<li class='new-list'>New List</i><div class='index'>0</div></li>")
+
     onShow: ->
+
       App.reqres.setHandler('list:id:at:index', (index) =>
         model = @collection.at((index * 1) - 1)
         

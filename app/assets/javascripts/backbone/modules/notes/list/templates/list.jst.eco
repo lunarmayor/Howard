@@ -1,5 +1,7 @@
 <% if !_.isUndefined(@name): %>
   <h4><%= @name %></h4>
+<% else: %>
+  <h4>Brain Dump</h4>
 <% end %>
 <ul></ul>
 <i class="fa fa-plus"></i>
