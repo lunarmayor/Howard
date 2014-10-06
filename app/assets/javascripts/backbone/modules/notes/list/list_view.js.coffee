@@ -10,12 +10,29 @@ Howard.module 'Notes.List', (List, App) ->
       'dragend': 'tempShow'
       'dragover': 'dragging'
       'destroy': 'destroyModel'
+      'edit': 'startEdit'
+      'dblclick': 'startEdit'
       'add:to:list': 'addToList'
+      'blur input': 'updateNote'
+      'keyup input': 'handleKeyUp'
+
+    startEdit: ->
+      @$el.removeClass('selected').addClass('update').html("<input type='text' value='#{@model.get('content')}'/>").find('input').focus()
+
+    handleKeyUp: (e) ->
+      if e.keyCode == 13
+        @updateNote()
+
+    updateNote: ->
+      @model.set('content', @$el.find('input').val())
+      @model.save()
+      @$el.removeClass('update').html(@model.get('content'))
 
     addToList: (e, listIndex) ->
+      return if listIndex is '0'
       listId = App.request('list:id:at:index', listIndex)
       
-      if listId
+      if listId and @model.get('list_id') != listId
         @model.set('list_id', listId)
         @model.save(null, {slient: true, success: =>
           App.execute('highlight:list', listId)
@@ -43,7 +60,7 @@ Howard.module 'Notes.List', (List, App) ->
     onRender: ->
       if @model.get('id')
         @el.style.opacity = 0
-        @$el.animate(opacity: 1, 500)
+        @$el.animate(opacity: 1, 700)
 
   class List.View extends App.Views.CompositeView
     template: 'notes/list/templates/list'
@@ -54,9 +71,9 @@ Howard.module 'Notes.List', (List, App) ->
 
     events:
       'click .fa-plus': 'addInput'
-      'blur input': 'createNote'
-      'keyup input': 'handleKeyUp'
-      'keydown input': 'handleKeyDown'
+      'blur .new input': 'createNote'
+      'keyup .new input': 'handleKeyUp'
+      'keydown .new input': 'handleKeyDown'
       'click li': 'select'
 
     behaviors:
@@ -66,6 +83,10 @@ Howard.module 'Notes.List', (List, App) ->
         40: -> @selectNext()
         84: -> @deleteSelected()
         8: -> @deleteSelected()
+        69: -> @startEdit()
+        48: ->
+          @changeCurrentNumber(0)
+          @addToList()
         49: -> 
           @changeCurrentNumber(1)
           @addToList()
@@ -95,7 +116,7 @@ Howard.module 'Notes.List', (List, App) ->
           @addToList()
         preventDefault: [187]
 
-    addToList: _.debounce((-> @addToListAndRemove()) , 300)
+    addToList: _.debounce((-> @addToListAndRemove()) , 400)
 
     changeCurrentNumber: (number) ->
       @currentNumber += number
@@ -111,8 +132,9 @@ Howard.module 'Notes.List', (List, App) ->
         selected.trigger('destroy')
 
     select: (e) ->
-      @$el.find('li').removeClass('selected')
-      $(e.currentTarget).addClass('selected')
+      unless $(e.currentTarget).find('input').length
+        @$el.find('li').removeClass('selected')
+        $(e.currentTarget).addClass('selected')
 
     selectPrevious: ->
       selected = @$el.find('li.selected')
@@ -168,9 +190,16 @@ Howard.module 'Notes.List', (List, App) ->
         note.save({}, {silent: true})
         @$el.find('.fa-plus').show()
 
+    startEdit: ->
+      @destroyInput()
+      selected = @$el.find('li.selected')
+      
+      if selected.length
+        selected.trigger('edit')
+
     destroyInput: ->
       @$el.find('li.new').animate({opacity: 0}, 400, =>
-        @$el.find('li.new').remove()
+        @$el.find('li.new').remove() if @$el.find('li.new').length
         @$el.find('.fa-plus').show()
       )
 
@@ -200,11 +229,11 @@ Howard.module 'Notes.List', (List, App) ->
    
     onShow: ->
       dragIcon = document.createElement('img')
-      dragIcon.src = 'assets/drag.png'
+      dragIcon.src = '/assets/drag.png'
 
       socket = io.connect('//localhost:3001/')
       socket.on('message', (data) =>
-        @collection.add(JSON.parse(data))
+        @collection.add(JSON.parse(data)) unless !_.isUndefined(@model)
       )
 
       @$el.find('.fa-trash-container').on('dragover', @cancelEvent)
