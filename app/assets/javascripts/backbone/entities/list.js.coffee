@@ -17,5 +17,9 @@ Howard.module "Entities", (Entities, App) ->
         list = new Entities.List({id: id})
         list.fetch()
 
+      getNewList: ->
+        list = new Entities.List()
+
   App.reqres.setHandler "list:entities", API.getLists
   App.reqres.setHandler "list:entity", (id) -> API.getList(id)
+  App.reqres.setHandler "new:list:entity", API.getNewList
