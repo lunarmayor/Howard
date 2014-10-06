@@ -4,7 +4,7 @@ Howard.module 'Nav.List', (List, App) ->
     tagName: 'li'
     events:
       'click': ->
-        @trigger('change:route', @model)
+        App.execute(@model.get('command'))
 
   class List.Nav extends App.Views.CompositeView
     template: 'nav/list/templates/nav'

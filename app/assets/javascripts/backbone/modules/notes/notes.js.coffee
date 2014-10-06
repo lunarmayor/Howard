@@ -9,5 +9,6 @@ Howard.module "Notes", (Notes, App) ->
 
 
   App.addInitializer ->
-    new Notes.Router
-      controller: API
+    router = new Notes.Router(controller: API)
+
+    App.commands.setHandler('visit:root', -> router.navigate('/', {trigger: true}))
