@@ -9,6 +9,8 @@ gem 'eco'
 gem 'devise'
 gem 'redis'
 gem 'active_model_serializers' 
+gem 'httparty'
+gem 'nexmo'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
