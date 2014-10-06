@@ -3,7 +3,7 @@ Howard.module 'Lists.List', (List, App) ->
   List.Controller =
     showLists: ->
       lists = new List.View({collection: @getLists()})
-      App.sidePaneRegion.show(lists)
+      App.sidePaneRegion.show(lists) unless App.sidePaneRegion.currentView
 
     showList: (id) ->
       promise = App.request('list:entity', id)
@@ -14,6 +14,19 @@ Howard.module 'Lists.List', (List, App) ->
         App.mainRegion.show(listView)
         App.reqres.setHandler('note:collection', -> listView.collection)
       )
+
+      lists = new List.View({collection: @getLists()})
+      App.sidePaneRegion.show(lists) unless App.sidePaneRegion.currentView
+
+
+
+
+
+    listIndex: ->
+      list = new List.IndexView(collection: @getLists())
+      App.mainRegion.show(list)
+
+      App.sidePaneRegion.empty()
       
 
     getLists: ->
