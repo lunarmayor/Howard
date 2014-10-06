@@ -14,6 +14,10 @@ class User < ActiveRecord::Base
   has_many :notes
   has_many :lists
 
+  def remember_me
+    true
+  end
+
   def set_password_confirmation
     self.password_confirmation = self.password
   end

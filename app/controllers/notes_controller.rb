@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  before_action :authenticate_user!
   respond_to :json
   def index
   	@notes = current_user.notes.where(list_id: nil)
