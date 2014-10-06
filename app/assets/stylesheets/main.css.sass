@@ -55,6 +55,8 @@ ul
     top: 10px
 
 .note-list
+  padding-bottom: 100px
+  
   ul
     padding-top: 30px
     padding-bottom: 30px
@@ -75,6 +77,15 @@ ul
     &.selected
       background: rgba(222, 77, 83, 0.7)
       border-color: rgba(222, 77, 83, 0.7)
+
+  &.list
+    li
+      background: rgba(255, 119, 43, 0.5)
+      border-color: rgba(255, 119, 43, 0.5)
+
+      &.selected
+        background: rgba(255, 119, 43, 0.7)
+        border-color: rgba(255, 119, 43, 0.7)
 
 
 ul.nav-list
@@ -157,7 +168,7 @@ input
 .transparent
   opacity: 0 !important
 
-li.new
+li.new, li.update
   background: rgba(255, 164, 168, 0.5)
   opacity: 0
   input
@@ -183,6 +194,8 @@ li.new
   top: 0
   right: 0
   width: 220px
+  height: 100%
+  overflow: auto
 
 .drop-list
   margin-top: 30px

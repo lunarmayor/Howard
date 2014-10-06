@@ -1,17 +1,12 @@
-<h2>Log in</h2>
 
+<div id="sign-up">
+  <h2>Howard</h2>
+  <img src="https://d30y9cdsu7xlg0.cloudfront.net/png/817-84.png" alt="Brain Icon" width="84" height="84"/>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, autofocus: true %></div>
-
-  <div><%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %></div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-  <% end -%>
-
-  <div><%= f.submit "Log in" %></div>
+  <div><%= f.email_field :email, autofocus: true, placeholder: 'email' %></div>
+  <div><%= f.password_field :password, autocomplete: "off", placeholder: 'password' %></div>
+  <div><%= f.submit "Log in", class: 'sign-up' %></div>
 <% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<%# render "devise/shared/links" %>
