@@ -10,13 +10,30 @@ Howard.module 'Lists.List', (List, App) ->
       'dragstart': 'dragStart'
       'dragend': 'dragEnd'
       'dragover': 'dragging'
-      'click': -> App.execute('show:list', @model.get('id'))
+      'edit': 'startEdit'
+      'dblclick': 'startEdit'
+      'keyup input': 'handleKeyUp'
+      'blur input': 'updateList'
+      'click .icon-arrow-icon': -> App.execute('show:list', @model.get('id'))
       'destroy': 'destroyModel'
 
     onRender: ->
       if @model.get('id')
         @el.style.opacity = 0
         @$el.animate(opacity: 1, 700)
+
+    startEdit: ->
+      @$el.removeClass('selected').addClass('update')
+        .html("<input type='text' value='#{@model.get('name')}'/>").find('input').focus()
+
+    handleKeyUp: (e) ->
+      if e.keyCode == 13
+        @updateList()
+    
+    updateList: ->
+      @model.set('name', @$el.find('input').val())
+      @model.save()
+      @$el.removeClass('update').html(@model.get('name') + "<span class='icon-arrow-icon'></span>")
 
     dragStart: (e) ->
       $(e.target).animate({opacity: 0.6}, 300)
@@ -44,8 +61,8 @@ Howard.module 'Lists.List', (List, App) ->
     
     events:
       'click .fa-plus': 'addInput'
-      'blur input': 'createList'
-      'keyup input': 'handleKeyUp'
+      'blur .new input': 'createList'
+      'keyup .new input': 'handleKeyUp'
       'keydown input': 'handleKeyDown'
       'click li': 'select'
 
@@ -56,12 +73,20 @@ Howard.module 'Lists.List', (List, App) ->
         40: -> @selectNext()
         84: -> @deleteSelected()
         8: -> @deleteSelected()
+        39: -> @goToSelected()
+        69: -> @startEdit()
 
     deleteSelected: ->
       selected = @$el.find('li.selected')
 
       if selected.length
         selected.trigger('destroy')
+
+    goToSelected: ->
+      selected = @$el.find('li.selected')
+
+      if selected.length
+        selected.find('.icon-arrow-icon').trigger('click')
 
     select: (e) ->
       @$el.find('li').removeClass('selected')
@@ -99,6 +124,13 @@ Howard.module 'Lists.List', (List, App) ->
         li = @$el.find('li')
         li.first().addClass('selected') if li.length
 
+    startEdit: ->
+      @destroyInput()
+      selected = @$el.find('li.selected')
+      
+      if selected.length
+        selected.trigger('edit')
+
     handleKeyUp: (e) ->
       if e.keyCode == 13
         @createList()
@@ -117,6 +149,8 @@ Howard.module 'Lists.List', (List, App) ->
         @collection.add(list)
         list.save({}, {silent: true})
         @$el.find('.fa-plus').show()
+      else
+        @destroyInput()
 
     destroyInput: ->
       @$el.find('li.new').animate({opacity: 0}, 400, =>
