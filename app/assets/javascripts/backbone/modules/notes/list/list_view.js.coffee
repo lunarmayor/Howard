@@ -189,6 +189,8 @@ Howard.module 'Notes.List', (List, App) ->
         @collection.add(note)
         note.save({}, {silent: true})
         @$el.find('.fa-plus').show()
+      else
+        @destroyInput()
 
     startEdit: ->
       @destroyInput()
