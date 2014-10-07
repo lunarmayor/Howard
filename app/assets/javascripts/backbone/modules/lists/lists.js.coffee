@@ -18,8 +18,6 @@ Howard.module "Lists", (Lists, App) ->
 
   App.addInitializer ->
     router = new Lists.Router(controller: API)
-    API.setupLists() if window.location.pathname != '/config'
 
     App.commands.setHandler('show:list', (id) -> router.navigate('/lists/' + id, {trigger: true}))
     App.commands.setHandler('index:list', -> router.navigate('/lists', {trigger: true}))
-    App.commands.setHandler('visit:root', API.setupLists)

@@ -3,9 +3,8 @@ class MessageController < ApplicationController
   def incoming_message
   	
   	if params['text']
-      #user = User.find_by(phone: params['msisdn'].sub('1', ''))
+      #user = User.find_by(phone: params['msisdn'])
       user = User.first
-      puts "incoming"
       @note = user.notes.create(content: params["text"]) if user
       $redis.publish("howard", @note.to_json)
     end
