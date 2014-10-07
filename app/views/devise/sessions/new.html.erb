@@ -7,6 +7,8 @@
   <div><%= f.password_field :password, autocomplete: "off", placeholder: 'password' %></div>
   <div><%= f.submit "Log in", class: 'sign-up' %></div>
 <% end %>
+<div class="devise-links">
+   <%= render "devise/shared/links" %>
+</div>
 </div>
 
-<%# render "devise/shared/links" %>
