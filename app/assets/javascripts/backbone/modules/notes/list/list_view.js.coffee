@@ -61,6 +61,8 @@ Howard.module 'Notes.List', (List, App) ->
       if @model.get('id')
         @el.style.opacity = 0
         @$el.animate(opacity: 1, 700)
+      else
+        @el.style.opacity = 1
 
   class List.View extends App.Views.CompositeView
     template: 'notes/list/templates/list'

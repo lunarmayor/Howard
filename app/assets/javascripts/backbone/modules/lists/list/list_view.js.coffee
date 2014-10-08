@@ -37,7 +37,7 @@ Howard.module 'Lists.List', (List, App) ->
     childViewContainer: 'ul'
 
     onRender: ->
-      @$el.find('ul').prepend("<li class='new-list'>New List</i><div class='index'>0</div></li>")
+      #@$el.find('ul').prepend("<li class='new-list'>New List</i><div class='index'>0</div></li>")
 
     onShow: ->
 
