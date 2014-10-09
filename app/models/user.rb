@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   validates :email, :phone, presence: true
   validates :email, :phone, uniqueness: {:case_sensitive => false}
-  validates :password, length: {within: 8..20}
+  validates :password, length: {within: 6..20}, unless: Proc.new { |user| user.password.nil? }
   validates :phone, :phony_plausible => true
 
   before_create :set_password_confirmation
