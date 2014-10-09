@@ -87,6 +87,13 @@ ul
         background: rgba(255, 119, 43, 0.7)
         border-color: rgba(255, 119, 43, 0.7)
 
+svg
+  transition: fill 1s
+  &:hover
+    path
+      fill: #000
+    .circle
+      fill: rgba(255, 119, 43, 0.3)
 
 ul.nav-list
   margin: 0
@@ -268,6 +275,7 @@ input:-webkit-autofill
   left: 8px
   color: black
   cursor: pointer
+  height: 36px
 
 .devise-links
   position: absolute
@@ -293,5 +301,20 @@ input:-webkit-autofill
   margin-left: 120px
   margin-top: 30px
 
+  label
+    font-family: helvetica neue
+    font-weight: 200
+
   input
     width: 300px
+
+  .submit
+    padding: 20px
+    border: 1px solid black  
+    width: 101px
+    text-align: center
+    margin-top: 20px
+    font-family: helvetica neue
+    font-weight: 200
+    background: rgb(255, 178, 178)
+    cursor: pointer

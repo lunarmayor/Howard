@@ -11,4 +11,8 @@ class UsersController < ApplicationController
   	user.update(user_params)
   	respond_with user, root: false
   end
+
+  def user_params
+  	params.require(:user).permit(:phone, :email)
+  end
 end

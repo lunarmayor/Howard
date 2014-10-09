@@ -2,7 +2,8 @@
 
 <div class="user">
   <label>Phone</label><br/>
-  <input type='text' value="<%= @phone %>"/><br/>
+  <input type='text' class="phone" value="<%= @phone %>"/><br/>
   <label>Email</label><br/>
-  <input type='text' value="<%= @email %>"/><br/>
+  <input type='text' class="email" value="<%= @email %>"/><br/>
+  <div class='submit'>Save</div>
 </div>
