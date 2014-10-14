@@ -15,6 +15,7 @@ gem 'phony_rails'
 gem 'gon'
 gem 'rails_12factor', group: :production
 gem 'unicorn'
+gem 'newrelic_rpm'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
