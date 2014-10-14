@@ -38,7 +38,7 @@ Howard.module 'Lists.List', (List, App) ->
     dragStart: (e) ->
       $(e.target).animate({opacity: 0.6}, 300)
       dragIcon = document.createElement('img')
-      dragIcon.src = 'assets/drag.png'
+      dragIcon.src = 'ahttps://s3.amazonaws.com/howard-app/drag.png'
       $(dragIcon).addClass('drag-icon')
       e.originalEvent.dataTransfer.setDragImage(dragIcon, 0, 0)
 
