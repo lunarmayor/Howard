@@ -233,7 +233,7 @@ Howard.module 'Notes.List', (List, App) ->
    
     onShow: ->
       dragIcon = document.createElement('img')
-      dragIcon.src = '/assets/drag.png'
+      dragIcon.src = 'https://s3.amazonaws.com/howard-app/drag.png'
       
       if App.environment == 'development'
         socket = io.connect('//localhost:3001/')
