@@ -1,6 +1,6 @@
 class ListsController < ApplicationController
   before_action :authenticate_user!
-  respond_to :json
+  respond_to :json, :html
   
   def index
   	@lists = current_user.lists
