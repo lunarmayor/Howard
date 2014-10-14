@@ -14,6 +14,7 @@ gem 'nexmo'
 gem 'phony_rails'
 gem 'gon'
 gem 'rails_12factor', group: :production
+gem 'unicorn'
 
 # Use SCSS for stylesheets
 gem 'sass-rails'
