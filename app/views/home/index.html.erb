@@ -3,5 +3,5 @@
 <div id="side-pane"></div>
 
 <%= javascript_tag do %>
-    $(function() { window.Howard.start() })
+    Howard.start({environment: '<%= Rails.env %>'})
 <% end %>

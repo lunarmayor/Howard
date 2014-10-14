@@ -10,6 +10,9 @@
   App.addInitializer ->
     App.module('Nav').start()
 
+  App.on 'before:start', (options) ->
+    App.environment = options.environment
+
   App.on "start", (options) ->
     if Backbone.history
       Backbone.history.start({pushState: true})

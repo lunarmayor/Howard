@@ -1,1 +1,1 @@
-$redis = Redis.new
+$redis = Redis.new(host: 'pub-redis-10585.us-east-1-1.2.ec2.garantiadata.com', port: 10585)

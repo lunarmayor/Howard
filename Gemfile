@@ -12,6 +12,7 @@ gem 'active_model_serializers'
 gem 'httparty'
 gem 'nexmo'
 gem 'phony_rails'
+gem 'gon'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

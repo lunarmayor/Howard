@@ -6,7 +6,7 @@ class MessageController < ApplicationController
       #user = User.find_by(phone: params['msisdn'])
       user = User.first
       @note = user.notes.create(content: params["text"]) if user
-      $redis.publish("howard", @note.to_json)
+      $redis.publish("howard", {note: @note, phone: user.phone}.to_json)
     end
 
     respond_to do |format|

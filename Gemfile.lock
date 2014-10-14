@@ -61,6 +61,11 @@ GEM
     execjs (2.2.1)
     font-awesome-sass (4.2.0)
       sass (~> 3.2)
+    gon (5.2.0)
+      actionpack (>= 2.3.0)
+      json
+      multi_json
+      request_store (>= 1.0.5)
     hike (1.2.3)
     httparty (0.13.1)
       json (~> 1.8)
@@ -108,6 +113,7 @@ GEM
     rdoc (4.1.2)
       json (~> 1.4)
     redis (3.1.0)
+    request_store (1.1.0)
     sass (3.2.19)
     sass-rails (4.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -153,6 +159,7 @@ DEPENDENCIES
   devise
   eco
   font-awesome-sass (~> 4.2.0)
+  gon
   httparty
   jbuilder (~> 1.2)
   jquery-rails
