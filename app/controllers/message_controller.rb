@@ -3,10 +3,11 @@ class MessageController < ApplicationController
   def incoming_message
   	
   	if params['text']
-      #user = User.find_by(phone: params['msisdn'])
-      user = User.first
-      @note = user.notes.create(content: params["text"]) if user
-      $redis.publish("howard", {note: @note, phone: user.phone}.to_json)
+      user = User.find_by(phone: params['msisdn'])
+      if user
+        @note = user.notes.create(content: params["text"])
+        $redis.publish("howard", {note: @note, phone: user.phone}.to_json)
+      end
     end
 
     respond_to do |format|
