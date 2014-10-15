@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
   before_create :set_password_confirmation
   after_create :welcome_sms
+  after_create :create_default_lists
 
   has_many :notes
   has_many :lists
@@ -27,6 +28,12 @@ class User < ActiveRecord::Base
 
   def welcome_sms
     $nexmo.send_message(from: '12134657992', to: self.phone, text: 'Hello, I\'m Howard. Send me your ideas, notes, tasks, hopes, dreams, fears, and anything else you would like to get off your mind. I\'ll keep them safe.')
+  end
 
+  def create_default_lists
+    self.lists.create(name: 'To do list')
+    self.lists.create(name: 'Goals')
+    self.lists.create(name: 'Work')
+    self.lists.create(name: 'Finished')
   end
 end
