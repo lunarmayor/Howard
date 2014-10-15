@@ -165,10 +165,7 @@ Howard.module 'Notes.List', (List, App) ->
         selected.trigger('destroy')
 
     goToLists: ->
-      selected = @$el.find('li.selected')
-
-      if selected.length
-        App.execute('index:lists')
+      App.execute('index:list')
 
     select: (e) ->
       unless $(e.currentTarget).find('input').length
