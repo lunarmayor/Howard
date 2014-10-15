@@ -22,7 +22,7 @@ Howard.module 'Lists.List', (List, App) ->
         @el.style.opacity = 0
         @$el.animate(opacity: 1, 700)
       else
-        @el.style.opacity
+        @el.style.opacity = 1
 
     startEdit: ->
       @$el.removeClass('selected').addClass('update')
