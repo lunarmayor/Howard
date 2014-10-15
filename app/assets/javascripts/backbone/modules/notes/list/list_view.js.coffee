@@ -81,6 +81,7 @@ Howard.module 'Notes.List', (List, App) ->
     behaviors:
       KeyCommands:
         187: -> @addInput()
+        37: -> @goToLists()
         38: -> @selectPrevious()
         40: -> @selectNext()
         84: -> @deleteSelected()
@@ -116,6 +117,36 @@ Howard.module 'Notes.List', (List, App) ->
         57: ->
           @changeCurrentNumber(9)
           @addToList()
+        96: ->
+          @changeCurrentNumber(0)
+          @addToList()
+        97: -> 
+          @changeCurrentNumber(1)
+          @addToList()
+        98: -> 
+          @changeCurrentNumber(2)
+          @addToList()
+        99: ->
+          @changeCurrentNumber(3)
+          @addToList()
+        100: ->
+          @changeCurrentNumber(4)
+          @addToList()
+        101: ->
+          @changeCurrentNumber(5)
+          @addToList()
+        102: ->
+          @changeCurrentNumber(6)
+          @addToList()
+        103: ->
+          @changeCurrentNumber(7)
+          @addToList()
+        104: ->
+          @changeCurrentNumber(8)
+          @addToList()
+        105: ->
+          @changeCurrentNumber(9)
+          @addToList()
         preventDefault: [187]
 
     addToList: _.debounce((-> @addToListAndRemove()) , 400)
@@ -132,6 +163,12 @@ Howard.module 'Notes.List', (List, App) ->
 
       if selected.length
         selected.trigger('destroy')
+
+    goToLists: ->
+      selected = @$el.find('li.selected')
+
+      if selected.length
+        App.execute('index:lists')
 
     select: (e) ->
       unless $(e.currentTarget).find('input').length
