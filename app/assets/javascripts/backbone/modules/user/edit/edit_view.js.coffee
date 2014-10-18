@@ -5,6 +5,19 @@ Howard.module "User.Edit", (Edit, App) ->
 
   	events: 
       'click .submit': 'save'
+      'click .prompt-yes': -> @setPromptYes()
+      'click .prompt-no': -> @setPromptNo()
+
+    setPromptYes: ->
+      @model.set('prompt', true)
+      $('.prompt-options span').removeClass('selected')
+      $('.prompt-yes').addClass('selected')
+
+    setPromptNo: ->
+      @model.set('prompt', false)
+      $('.prompt-options span').removeClass('selected')
+      $('.prompt-no').addClass('selected')
+
 
     save: ->
       @model.set('phone', @$el.find('.phone').val())

@@ -5,6 +5,10 @@
   <input type='text' class="phone" value="<%= @phone %>"/><br/>
   <label>Email</label><br/>
   <input type='text' class="email" value="<%= @email %>"/><br/>
+  <label>Send Daily Prompt?</label><br/>
+  <div class="prompt-options">
+    <span class="prompt-yes <%= 'selected' if @prompt %>">Yes</span><span class="prompt-no <%= 'selected' if !@prompt %>" >No</span>
+  </div>
   <div class='submit'>Save</div>
   <div class="success" style="opacity: 0">User successfully updated</div>
 </div>

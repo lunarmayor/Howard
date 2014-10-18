@@ -14,4 +14,12 @@ class MessageController < ApplicationController
       format.all { render nothing: true, status: :ok }
     end
   end
+
+  def sms_all
+    if params['text']
+      User.where(prompt: true).each |user|
+        $nexmo.send_message(from: '12134657992', to: user.phone, text: params['text'])
+      end
+    end
+  end
 end
