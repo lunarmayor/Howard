@@ -16,6 +16,8 @@ body, html
   right: 0
   left: 0
   background: rgb(222,77,83)
+  overflow: scroll
+  overflow-x: hidden
 
 .drag-icon
   border-right: 1px solid black
@@ -87,13 +89,27 @@ ul
         background: rgba(255, 119, 43, 0.7)
         border-color: rgba(255, 119, 43, 0.7)
 
-svg
+svg.icon-arrow-icon
   transition: fill 1s
   &:hover
     path
       fill: #000
     .circle
       fill: rgba(255, 119, 43, 0.3)
+
+#howard-brand
+  margin-left: 50%
+  position: relative
+  right: 124px
+  top: 67px
+
+#howard-container
+  svg
+    transition: fill 1s
+    &:hover
+      #Path-7
+        transition: fill 1s
+        fill: #D75C5C
 
 ul.nav-list
   margin: 0
@@ -122,10 +138,14 @@ nav
   text-align: center
   font-family: helvetica neue
   font-weight: 100
-  padding-top: 25px
-  padding-bottom: 30px
+  padding-top: 30px
   font-size: 22px
   letter-spacing: 1px
+
+#howard-container
+  text-align: center
+  padding-top: 15px
+  padding-bottom: 15px
 
 
 h2
@@ -157,7 +177,7 @@ h4
   top: 58px
 
 input
-  background: none
+  background: rgba(0,0,0,0)
   box-shadow: none
   outline: none
   border: 1px solid black
@@ -276,9 +296,10 @@ input:-webkit-autofill
   color: black
   cursor: pointer
   height: 36px
+  width: 36px
 
 .devise-links
-  position: absolute
+  position: fixed
   bottom: 15px
   left: 15px
 
@@ -309,6 +330,23 @@ input:-webkit-autofill
     width: 300px
     margin-top: 10px
 
+  .prompt-options
+    margin-top: 30px
+    margin-bottom: 50px
+
+    span
+      padding: 10px
+      font-family: helvetica neue
+      font-weight: 100
+      padding-right: 15px
+      padding-left: 15px
+      margin-right: 10px
+      cursor: pointer
+      border-radius: 25px
+
+      &.selected
+        background: rgb(255, 177, 177)
+
   .submit
     padding: 20px 
     width: 101px
@@ -322,3 +360,85 @@ input:-webkit-autofill
 .success
   margin-top: 20px
   font-family: helvetica neue
+
+#mobile-howard-container
+  display: none
+
+
+@media screen and (max-width: 782px) 
+  #sign-up
+    h2
+      top: 0
+    padding-bottom: 40px
+    overflow: auto
+  #howard-brand
+    top: 0
+  form
+    margin-top: 20px
+
+    input
+      font-size: 20px
+      margin-bottom: 7px
+
+  .devise-links
+    position: absolute
+    top: 8px
+    right: 0px
+    height: 20px
+
+  #side-pane
+    display: none
+
+  #howard-container
+    display: none
+
+  #mobile-howard-container
+    display: inline-block
+    background-color: #F3B6B6
+    height: 60px
+
+  #nav
+    height: 60px
+    width: 100%
+
+    ul
+      display: inline-block
+      position: relative
+      bottom: 7px
+      li
+        display: inline-block
+        margin-bottom: 0
+        margin-left: 20px
+        float: left
+        img
+          height: 30px !important
+          width: 30px !important
+
+  #main
+    padding-top: 60px
+    margin-left: 0
+    h4
+      margin-left: 20px
+
+  .logo
+    display: none
+
+  .user
+    margin-left: 20px
+    input
+      width: 220px
+      font-size: 20px
+
+  .note-list
+    h4
+      margin-left: 20px
+    ul
+      margin-left: 20px
+    .fa-plus
+      margin-left: 25px
+
+    li
+      position: relative
+      width: 220px
+
+
