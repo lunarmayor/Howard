@@ -31,9 +31,9 @@ class User < ActiveRecord::Base
   end
 
   def create_default_lists
-    self.lists.create(name: 'To do list')
-    self.lists.create(name: 'Goals')
+    self.lists.create(name: 'To do')
+    self.lists.create(name: 'Life')
     self.lists.create(name: 'Work')
-    self.lists.create(name: 'Finished')
+    self.lists.create(name: 'Done')
   end
 end
