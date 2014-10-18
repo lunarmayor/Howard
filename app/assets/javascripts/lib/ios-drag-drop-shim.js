@@ -13,7 +13,7 @@
     var dragDiv = 'draggable' in div;
     var evts = 'ondragstart' in div && 'ondrop' in div;
 
-    var needsPatch = !(dragDiv || evts) || /iPad/.test(navigator.userAgent);
+    var needsPatch = !(dragDiv || evts) || /iPad|iPod/.test(navigator.userAgent);
     log((needsPatch ? "" : "not ") + "patching html5 drag drop");
 
     if(!needsPatch) return;
@@ -78,7 +78,7 @@
 
       this.elTranslation.x += average(deltas.x);
       this.elTranslation.y += average(deltas.y);
-      this.el.style["z-index"] = "999999";
+      this.el.style["z-index"] = "9999";
       this.el.style["pointer-events"] = "none";
       writeTransform(this.el, this.elTranslation.x, this.elTranslation.y);
 
@@ -184,6 +184,7 @@
       var evt = doc.createEvent("Event");
       evt.initEvent("dragstart", true, true);
       evt.dataTransfer = {
+        setDragImage: function(image, x, y){ return false}, 
         setData: function(type, val) {
           this.dragData[type] = val;
           return val;
