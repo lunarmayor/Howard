@@ -7,6 +7,8 @@ class MessageController < ApplicationController
       if user
         @note = user.notes.create(content: params["text"])
         $redis.publish("howard", {note: @note, phone: user.phone}.to_json)
+      else
+        $nexmo.send_message(from: '12134657992', to: params['msisdn'], text: 'Hello, I\'m Howard. Text me your ideas, goals, hopes, dreams, and fears. I\'ll keep them safe. sign up at www.howardapp.com')
       end
     end
 
