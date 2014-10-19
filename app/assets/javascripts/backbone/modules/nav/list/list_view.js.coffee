@@ -12,3 +12,4 @@ Howard.module 'Nav.List', (List, App) ->
     childViewContainer: 'ul'
     events:
       'click .logo': -> @trigger('visit:root')
+      'click .help': -> $('#zenbox_tab').click()
