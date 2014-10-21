@@ -14,7 +14,7 @@ Howard.module 'Lists.List', (List, App) ->
       'dblclick': 'startEdit'
       'keyup input': 'handleKeyUp'
       'blur input': 'updateList'
-      'click .icon-arrow-icon': -> App.execute('show:list', @model.get('id'))
+      'click .arrow-container': -> App.execute('show:list', @model.get('id'))
       'destroy': 'destroyModel'
 
     onRender: ->

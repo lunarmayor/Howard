@@ -75,6 +75,7 @@ ul
     font-weight: 200
     border-right: rgba(222, 77, 83, 0.5) 5px solid
     border-left: rgba(222, 77, 83, 0.5) 5px solid
+    position: relative
 
     &.selected
       background: rgba(222, 77, 83, 0.7)
@@ -94,8 +95,6 @@ svg.icon-arrow-icon
   &:hover
     path
       fill: #000
-    .circle
-      fill: rgba(255, 119, 43, 0.3)
 
 #howard-brand
   margin-left: 50%
@@ -302,15 +301,27 @@ footer
     width: 45px
 
 .icon-arrow-icon
-  float: right
   font-size: 35px
   position: relative
-  bottom: 8px
-  left: 8px
+  bottom: -6px
   color: black
   cursor: pointer
   height: 36px
-  width: 36px
+
+.arrow-container
+  float: right
+  height: 100%
+  position: absolute
+  top: 0
+  bottom: 0
+  right: 0
+  width: 50px
+  border-left: 1px solid rgb(233, 151, 0)
+  text-align: center
+  transition: background 1s
+
+  &:hover
+    background: rgba(255, 119, 43, 0.3)
 
 .devise-links
   position: fixed
@@ -328,6 +339,9 @@ footer
 #error_explanation
   font-family: helvetica neue
   font-weight: 200
+
+  li
+    margin-bottom: 12px
 
   h2
     display: none
