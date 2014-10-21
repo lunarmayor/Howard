@@ -5,8 +5,14 @@ class MessageController < ApplicationController
   	if params['text']
       user = User.find_by(phone: params['msisdn'])
       if user
-        @note = user.notes.create(content: params["text"])
-        $redis.publish("howard", {note: @note, phone: user.phone}.to_json)
+        if ['stop', 'pleasestop', 'stoptextingme', 'shutup'].include?(params['text'].downcase.gsub(/[^a-z]/, ''))
+          user.prompt = false
+          user.save
+          $nexmo.send_message(from: '12134657992', to: params['msisdn'], text: 'Okay, sorry, I won\'t text you anymore.')
+        else
+          @note = user.notes.create(content: params["text"])
+          $redis.publish("howard", {note: @note, phone: user.phone}.to_json)
+        end
       else
         $nexmo.send_message(from: '12134657992', to: params['msisdn'], text: 'Hello, I\'m Howard. Text me your ideas, goals, hopes, dreams, and fears. I\'ll keep them safe. sign up at www.howardapp.com')
       end
