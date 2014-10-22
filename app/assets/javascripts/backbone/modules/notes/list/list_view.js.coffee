@@ -272,13 +272,12 @@ Howard.module 'Notes.List', (List, App) ->
       socket = io.connect('http://stark-forest-1884.herokuapp.com/')
       
       channel = 'message:' + gon.phone
-
+      list_model = @model
       socket.on(channel, (data) =>
-        console.log(data)
-        if _.isUndefined(@model) and _.isNull(data.list_id)
-          @collection.add(data)
+        if _.isUndefined(list_model)
+          @collection.add(data) if _.isNull(data.list_id)
         else
-          @collection.add(data) if @model.get('id') == data.list_id
+          @collection.add(data) if list_model.get('id') == data.list_id
       )
 
       @$el.find('.fa-trash-container').on('dragover', @cancelEvent)
