@@ -269,15 +269,16 @@ Howard.module 'Notes.List', (List, App) ->
       dragIcon = document.createElement('img')
       dragIcon.src = 'https://s3.amazonaws.com/howard-app/drag.png'
       
-      if App.environment == 'development'
-        socket = io.connect('//localhost:3001/')
-      else
-        socket = io.connect('http://stark-forest-1884.herokuapp.com/')
+      socket = io.connect('http://stark-forest-1884.herokuapp.com/')
       
       channel = 'message:' + gon.phone
 
       socket.on(channel, (data) =>
-        @collection.add(data) unless !_.isUndefined(@model)
+        console.log(data)
+        if !_.isUndefined(@model) and _.isNull(data.list_id)
+          @collection.add(data)
+        else
+          @collection.add(data) if @model.get('id') == data.list_id
       )
 
       @$el.find('.fa-trash-container').on('dragover', @cancelEvent)

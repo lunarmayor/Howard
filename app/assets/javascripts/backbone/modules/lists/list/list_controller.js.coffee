@@ -18,10 +18,6 @@ Howard.module 'Lists.List', (List, App) ->
       lists = new List.View({collection: @getLists()})
       App.sidePaneRegion.show(lists) unless App.sidePaneRegion.currentView
 
-
-
-
-
     listIndex: ->
       list = new List.IndexView(collection: @getLists())
       App.mainRegion.show(list)
