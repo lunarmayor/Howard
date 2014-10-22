@@ -51,6 +51,8 @@ class MessageController < ApplicationController
     note_content = text[(ending_char+1)..-1]
 
     if note_content.present?
+      note_content = note_content.strip
+      
       list = user.lists.where('lower(name) = ?', list_name).first
 
       if list.present?
