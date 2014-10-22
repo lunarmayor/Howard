@@ -3,6 +3,7 @@ class ListsController < ApplicationController
   respond_to :json, :html
   
   def index
+    gon.phone = current_user.phone
   	@lists = current_user.lists
   	respond_with(@lists, root: false) do |format|
       format.html{ render 'home/index' }
@@ -10,6 +11,7 @@ class ListsController < ApplicationController
   end
 
   def show
+    gon.phone = current_user.phone
   	@list = current_user.lists.where(id: params[:id]).includes(:notes).first
   	respond_with( @list, root: false) do |format|
       format.html { render 'home/index' }
