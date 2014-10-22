@@ -275,7 +275,7 @@ Howard.module 'Notes.List', (List, App) ->
 
       socket.on(channel, (data) =>
         console.log(data)
-        if !_.isUndefined(@model) and _.isNull(data.list_id)
+        if _.isUndefined(@model) and _.isNull(data.list_id)
           @collection.add(data)
         else
           @collection.add(data) if @model.get('id') == data.list_id
