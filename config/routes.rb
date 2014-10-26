@@ -14,4 +14,8 @@ Howard::Application.routes.draw do
   resources :lists
   resources :users
 
+  match 'users/:id' => 'users#destroy', :via => :delete, :as => :destroy_user
+
+  get '/meet_howard', to: 'home#splash', as: 'splash'
+
 end

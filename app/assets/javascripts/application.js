@@ -17,6 +17,7 @@
 //=
 //= require lib/three
 //= require lib/ios-drag-drop-shim
+//= require lib/snap.svg-min.js
 //= require lib/socket.io.js
 //= require lib/OrbitControls
 //= require_tree ./backbone/config

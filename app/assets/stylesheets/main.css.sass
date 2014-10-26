@@ -8,6 +8,7 @@ body, html
   width: 100%
   //background: #FDFDFF
   background: white
+  overflow-x: hidden
 
 #sign-up
   position: absolute
@@ -18,6 +19,36 @@ body, html
   background: rgb(222,77,83)
   overflow: scroll
   overflow-x: hidden
+
+#meet-howard
+  position: relative
+  top: 0
+  right: 0
+  left: 0
+  background: #de4d53
+  overflow: scroll
+  overflow-x: hidden
+  padding-bottom: 63px
+
+#how-it-works
+  background: rgb(255, 225, 225)
+  
+  svg
+    margin-left: 50%
+    position: relative
+    right: 417px
+    margin-bottom: 85px
+
+  h5
+    margin-top: 0
+    padding-top: 50px
+    font-family: helvetica neue, arial
+    font-size: 25px
+    font-weight: 100
+    margin-left: 50%
+    position: relative
+    right: 365px
+    letter-spacing: 1px
 
 .drag-icon
   border-right: 1px solid black
@@ -56,6 +87,9 @@ ul
     position: relative
     top: 10px
 
+
+#mobile-svg
+  display: none
 .note-list
   padding-bottom: 100px
 
@@ -132,6 +166,45 @@ nav
 
 #main
   margin-left: 150px
+
+#quick-pitch
+  margin-top: 114px
+  font-family: HelveticaNeue-Thin, helvetica neue, arial
+  font-weight: 100
+  font-size: 22px
+  width: 318px
+  margin-left: 50%
+  position: relative
+  right: 148px
+
+#sign-up-button
+  background: #FF8F8F
+  padding: 15px
+  text-align: center
+  font-family: HelveticaNeue-Thin, helvetica neue, arial
+  font-weight: 300
+  width: 96px
+  font-size: 20px
+  margin-left: 50%
+  position: relative
+  right: 69px
+  margin-top: 69px
+  cursor: pointer
+  a
+    color: black
+    text-decoration: none
+
+#sign-in-button
+  position: absolute
+  top: 15px
+  right: 20px
+  font-family: HelveticaNeue-Thin, helvetica neue, arial
+  background: #ff8f8f
+  padding: 10px
+  cursor: pointer
+  a
+    color: black
+    text-decoration: none
 
 
 .logo
@@ -394,8 +467,41 @@ footer
 #mobile-howard-container
   display: none
 
+@media screen and (max-width: 1001px)
+  #mobile-svg
+    display: block
+  #how-it-works-svg
+    display: none
+  
+  #how-it-works
+    padding-bottom: 50px
+    h5
+      right: 80px
+    svg
+      right: 173px
+
+
+
+
+
 
 @media screen and (max-width: 782px)
+
+  #meet-howard
+    h2
+      top: 10px
+    #sign-in-button
+      top: 0
+      right: 0
+
+    #quick-pitch
+      margin-top: 14px
+      width: 243px
+      text-align: center
+      right: 120px
+    #sign-up-button
+      margin-top: 36px
+
   .help
     display: none 
   #sign-up

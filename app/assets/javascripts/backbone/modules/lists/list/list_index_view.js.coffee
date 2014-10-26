@@ -35,11 +35,11 @@ Howard.module 'Lists.List', (List, App) ->
     updateList: ->
       @model.set('name', @$el.find('input').val())
       @model.save()
-      @$el.removeClass('update').html(@model.get('name') + "<svg class='icon-arrow-icon' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1'  x='0px' y='0px' viewBox='0 0 100 100' enable-background='new 0 0 100 100' xml:space='preserve'>
-<g id='Captions'></g>
-<path class='circle' fill='none' stroke='#000000' stroke-width='4' stroke-miterlimit='10' d='M16,50c0,18.8,15.2,34,34,34s34-15.2,34-34  c0-18.8-15.2-34-34-34C31.2,16,16,31.2,16,50z'/>
-<path d='M67,52.1c0.1-0.1,0.1-0.1,0.2-0.2c0,0,0.1-0.1,0.1-0.1c0,0,0,0,0-0.1c0.4-0.5,0.6-1.1,0.6-1.8c0-0.7-0.2-1.3-0.6-1.8  c0,0,0,0-0.1-0.1c0,0,0-0.1-0.1-0.1C67.1,48,67.1,48,67,47.9L53.8,34.6c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2l8.2,8.2  l-22.6,0c-1.6,0-3,1.3-3,3c0,1.6,1.3,3,3,3l22.6,0l-8.2,8.2c-1.2,1.2-1.2,3.1,0,4.2c1.2,1.2,3.1,1.2,4.2,0L67,52.1  C67,52.1,67,52.1,67,52.1z'/>
-</svg>")
+      @$el.removeClass('update').html(@model.get('name') + "<div class='arrow-container'>
+  <svg class='icon-arrow-icon' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' version='1.1' id='Layer_1' x='0px' y='0px' viewBox='0 0 100 100'>
+   <path d='M67,52.1c0.1-0.1,0.1-0.1,0.2-0.2c0,0,0.1-0.1,0.1-0.1c0,0,0,0,0-0.1c0.4-0.5,0.6-1.1,0.6-1.8c0-0.7-0.2-1.3-0.6-1.8  c0,0,0,0-0.1-0.1c0,0,0-0.1-0.1-0.1C67.1,48,67.1,48,67,47.9L53.8,34.6c-1.2-1.2-3.1-1.2-4.2,0c-1.2,1.2-1.2,3.1,0,4.2l8.2,8.2  l-22.6,0c-1.6,0-3,1.3-3,3c0,1.6,1.3,3,3,3l22.6,0l-8.2,8.2c-1.2,1.2-1.2,3.1,0,4.2c1.2,1.2,3.1,1.2,4.2,0L67,52.1  C67,52.1,67,52.1,67,52.1z'></path>
+</svg>
+</div>")
 
     dragStart: (e) ->
       $(e.target).animate({opacity: 0.6}, 300)
