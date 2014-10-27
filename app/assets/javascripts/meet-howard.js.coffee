@@ -1,6 +1,7 @@
 delay = (ms, func) -> setTimeout func, ms
 
 $ ->
+  return if $('#meet-howard').length < 1
 
   animation = new Animation
   $('body').on('scroll', ->
