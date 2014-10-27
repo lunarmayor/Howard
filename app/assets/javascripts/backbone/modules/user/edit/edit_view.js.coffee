@@ -7,6 +7,15 @@ Howard.module "User.Edit", (Edit, App) ->
       'click .submit': 'save'
       'click .prompt-yes': -> @setPromptYes()
       'click .prompt-no': -> @setPromptNo()
+      'click .destroy': 'destroyUser'
+
+    destroyUser: ->
+      return unless confirm('Are you sure you want to delete your account? :(')
+      $.ajax
+        url: '/users/1'
+        type: 'DELETE'
+        success: ->
+          window.location = '/'
 
     setPromptYes: ->
       @model.set('prompt', true)

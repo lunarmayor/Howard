@@ -12,3 +12,5 @@
   <div class='submit'>Save</div>
   <div class="success" style="opacity: 0">User successfully updated</div>
 </div>
+
+<div class="destroy">Destroy Account</div>

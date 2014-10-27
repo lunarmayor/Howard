@@ -15,4 +15,9 @@ class UsersController < ApplicationController
   def user_params
   	params.require(:user).permit(:phone, :email)
   end
+
+  def destroy
+    current_user.destroy()
+    respond_with {}
+  end
 end
