@@ -10,7 +10,13 @@ class MessageController < ApplicationController
           user.prompt = false
           user.save
         else
-          parse_text(params["text"], user)
+          list = user.lists.where('lower(name) = ?', params['text'].downcase).first
+          if list.present?
+            text = list.name + ': ' + list.notes.order(:created_at).select(:content).limit(5).map(&:content).join(', ')
+            $nexmo.send_message(from: '12134657992', to: params['msisdn'], text: text)
+          elsif !(params['text'] =~ /^[.]/).present?
+            parse_text(params["text"], user)
+          end
         end
       else
         $nexmo.send_message(from: '12134657992', to: params['msisdn'], text: 'Hello, I\'m Howard. Text me your ideas, goals, hopes, dreams, and fears. I\'ll keep them safe. sign up at www.howardapp.com')
