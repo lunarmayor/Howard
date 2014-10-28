@@ -12,8 +12,11 @@ class MessageController < ApplicationController
         else
           list = user.lists.where('lower(name) = ?', params['text'].downcase).first
           if list.present?
-            text = list.name + ': ' + list.notes.order('created_at DESC').select(:content).limit(5).map(&:content).join(', ')
-            $nexmo.send_message(from: '12134657992', to: params['msisdn'], text: text)
+            text = list.notes.order('created_at DESC').select(:content).limit(3).map(&:content)
+            text.each do |t|
+              $nexmo.send_message(from: '12134657992', to: params['msisdn'], text: t)
+              sleep 1
+            end
           elsif !(params['text'] =~ /^[.]/).present?
             parse_text(params["text"], user)
           end
